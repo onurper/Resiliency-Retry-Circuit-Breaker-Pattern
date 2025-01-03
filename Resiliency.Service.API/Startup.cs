@@ -57,13 +57,13 @@ namespace Resiliency.Service.API
         {
             return HttpPolicyExtensions.HandleTransientHttpError().AdvancedCircuitBreakerAsync(0.1, TimeSpan.FromSeconds(15), 3, TimeSpan.FromSeconds(30), onBreak: (arg1, arg2) =>
             {
-                Debug.WriteLine($"Curcuit Breaker => On Break -----------------------------------------------------------------------------------------------");
+                Debug.WriteLine($"Curcuit Breaker ==> On Break -----------------------------------------------------------------------------------------------");
             }, onReset: () =>
             {
-                Debug.WriteLine($"Curcuit Breaker => On Reset -----------------------------------------------------------------------------------------------");
+                Debug.WriteLine($"Curcuit Breaker ==> On Reset -----------------------------------------------------------------------------------------------");
             }, onHalfOpen: () =>
             {
-                Debug.WriteLine($"Curcuit Breaker => On Half Open -----------------------------------------------------------------------------------------------");
+                Debug.WriteLine($"Curcuit Breaker ==> On Half Open -----------------------------------------------------------------------------------------------");
             });
         }
 

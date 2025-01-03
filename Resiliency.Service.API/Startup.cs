@@ -67,7 +67,7 @@ namespace Resiliency.Service.API
             });
         }
 
-        private IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+        private IAsyncPolicy<HttpResponseMessage> GetRetryPolicy() 
         {
             return HttpPolicyExtensions.HandleTransientHttpError().OrResult(msg => msg.StatusCode == HttpStatusCode.NotFound).WaitAndRetryAsync(5, r =>
             {
